@@ -1,13 +1,16 @@
 .gameboard{
+    background: black;
     height: 35em;
     margin:6%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
 }
 
 .cell{
     text-align: center;
     padding-top: 5em;
-    border: 1px green;
+    background-color: white;
 }
