@@ -3,9 +3,9 @@ playerSym = '';
 
 function whosTurn(numberPlays, playerSym) {
     if (numberPlays % 2 == 0) {
-        let playerSym = 'X';
+        playerSym = 'X';
     } else {
-        let playerSym = "O"
+        playerSym = "O"
     };
 
     return playerSym;
