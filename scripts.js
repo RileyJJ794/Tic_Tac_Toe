@@ -11,12 +11,11 @@ function whosTurn(symbol) {
     return symbol;
 };
 
-
-
 let cell = document.querySelectorAll('.cell');
 
 for (var i = 0; i < cell.length; i++) {
     cell[i].addEventListener('click', function () {
+
         if (this.innerHTML == 'X' || this.innerHTML == 'O') {
             console.log('invalid move')
         }  else{
