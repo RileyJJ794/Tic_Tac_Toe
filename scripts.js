@@ -1,14 +1,14 @@
 numberPlays = 0;
-playerSym = '';
+playerSym = 'X';
 
-function whosTurn(numberPlays, playerSym) {
-    if (numberPlays % 2 == 0) {
-        playerSym = 'X';
+function whosTurn(symbol) {
+    if (symbol == 'O') {
+        symbol = 'X';
     } else {
-        playerSym = "O"
+        symbol = "O"
     };
 
-    return playerSym;
+    return symbol;
 };
 
 
@@ -18,8 +18,8 @@ let cell = document.querySelectorAll('.cell');
 for (var i = 0; i < cell.length; i++) {
     cell[i].addEventListener('click', function () {
         let turn = whosTurn(this.innerHTML);
-        console.log(turn)
-        // add something that shows an x or an o dependng on whos turn it is at the cell selected by player
+
+        document.getElementsByName(this.innerHTML) = turn;
 
     });
 };
