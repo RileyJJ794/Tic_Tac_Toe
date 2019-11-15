@@ -17,9 +17,16 @@ let cell = document.querySelectorAll('.cell');
 
 for (var i = 0; i < cell.length; i++) {
     cell[i].addEventListener('click', function () {
-        let turn = whosTurn(this.innerHTML);
+        if (this.innerHTML == 'X' || this.innerHTML == 'O') {
+            console.log('invalid move')
+        }  else{
+            let turn = whosTurn(playerSym);
+            playerSym = turn
 
-        document.getElementsByName(this.innerHTML) = turn;
+            this.innerHTML = turn;
+        }
+
+        
 
     });
 };
