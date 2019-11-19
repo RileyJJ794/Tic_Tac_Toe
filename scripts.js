@@ -2,33 +2,57 @@ numberPlays = 0;
 playerSym = 'X';
 
 gameboard = [
-    [1,2,3], 
-    [4,5,6], 
-    [7,8,9]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ]
 
-function math(move) {
+function math(move, symbol) {
 
-    y = (Math.ceil(move/3)-1);
-    x = ((move%3)-1);
+    x = (Math.ceil(move / 3) - 1);
+    y = ((move % 3) - 1);
 
-    if (x==-1) {
-        x=2
+    if (y == -1) {
+        y = 2
     };
 
-    console.log(x);
-    console.log(y);
+    gameboard[x][y] = symbol;
+
+    // console.log(gameboard[x]);
+    win = 0
+
+    for (var i = 0; i < 3; i++) {
+
+        if (gameboard[x][i] == "X" || gameboard[x][i] == "O"){
+            win += 1
+
+        } else{
+            break
+        };
+
+        if (win == 3) {
+            if (gameboard[x][0] == "X") {
+                console.log("player O wins")
+            } else {
+                console.log('player X wins')
+            }
+        }
+
+    }
 }
 
 function whosTurn(symbol) {
-    if (symbol == 'O') {
-        symbol = 'X';
+    if (symbol == 'X') {
+        symbol = 'O';
     } else {
-        symbol = "O"
+        symbol = "X"
     };
 
     return symbol;
 };
+
+
+
 
 let cell = document.querySelectorAll('.cell');
 
@@ -37,17 +61,18 @@ let cell = document.querySelectorAll('.cell');
 for (var i = 0; i < cell.length; i++) {
     cell[i].addEventListener('click', function () {
 
-        math(this.innerHTML)
+        math(this.innerHTML, playerSym)
 
         if (this.innerHTML == 'X' || this.innerHTML == 'O') {
             console.log('invalid move')
-        }  else{
+        } else {
             let turn = whosTurn(playerSym);
             playerSym = turn
 
             this.innerHTML = turn;
         }
 
+        
 
 
     });
