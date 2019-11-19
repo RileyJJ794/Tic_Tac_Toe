@@ -37,8 +37,29 @@ function math(move, symbol) {
                 console.log('player X wins')
             }
         }
-
     }
+
+    win = 0
+
+    for (var i = 0; i < 3; i++) {
+
+        if (gameboard[i][y] == "X" || gameboard[i][y] == "O"){
+            win += 1
+
+        } else{
+            break
+        };
+
+        if (win == 3) {
+            if (gameboard[0][y] == "X") {
+                console.log("player O wins")
+            } else {
+                console.log('player X wins')
+            }
+        }
+    }
+
+
 }
 
 function whosTurn(symbol) {
