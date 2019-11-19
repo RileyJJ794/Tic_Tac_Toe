@@ -59,6 +59,25 @@ function math(move, symbol) {
         }
     }
 
+    win = 0
+
+    for (var i = 0; i < 3; i++) {
+
+        if (gameboard[i][i] == "X" || gameboard[i][i] == "O"){
+            win += 1
+        } else{
+            break
+        };
+
+        if(win == 3) {
+            if (gameboard[x][y] == "X") {
+                console.log("player O wins")
+            } else {
+                console.log('player X wins')
+            }
+        }
+    }
+
 
 }
 
