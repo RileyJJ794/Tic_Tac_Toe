@@ -11,6 +11,8 @@
 
 .cell {
     text-align: center;
-    padding-top: 5em;
+    padding-top: 2em;
     background-color: white;
+    color: white;
+    font-size: 2em;
 }

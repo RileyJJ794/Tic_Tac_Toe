@@ -15,10 +15,11 @@ function math(move, symbol) {
     if (y == -1) {
         y = 2
     };
-
+    console.log(y)
+    console.log(x);
     gameboard[x][y] = symbol;
 
-    // console.log(gameboard[x]);
+    
     win = 0
 
     for (var i = 0; i < 3; i++) {
@@ -110,6 +111,7 @@ for (var i = 0; i < cell.length; i++) {
             playerSym = turn
 
             this.innerHTML = turn;
+            this.style.color = "Black";
         }
 
         
