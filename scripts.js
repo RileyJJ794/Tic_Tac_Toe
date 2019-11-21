@@ -1,11 +1,54 @@
 numberPlays = 0;
 playerSym = 'X';
 
+var modal = document.getElementById('mymodal');
+
+var span = document.getElementsByClassName('close')[0];
+
+var winner = document.querySelector(".who_win");
+
+var winBox = document.querySelector('.modal')
+
+
 gameboard = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ]
+
+function winDisplay(symbol) {
+    winner.innerHTML = ("Player " + symbol + " wins!!!")
+
+    winBox.classList.add("show")
+}
+
+// function winCondition(axis) {
+//     for (var i = 0; i < 3; i++) {
+
+//         if (gameboard[axis][i] == "X" || gameboard[axis][i] == "O"){
+//             win += 1
+
+//         } else{
+//             break
+//         };
+
+//         if (win == 3) {
+//             if (gameboard[axis][0] == "X") {
+
+//                 winDisplay("O");
+
+//                 console.log("player O wins");
+//             } else {
+
+//                 winDisplay("X");
+
+//                 console.log('player X wins');
+//             }
+//         }
+//     }
+// }
+
+
 
 function math(move, symbol) {
 
@@ -33,9 +76,15 @@ function math(move, symbol) {
 
         if (win == 3) {
             if (gameboard[x][0] == "X") {
-                console.log("player O wins")
+
+                winDisplay("O");
+
+                console.log("player O wins");
             } else {
-                console.log('player X wins')
+
+                winDisplay("X");
+
+                console.log('player X wins');
             }
         }
     }
@@ -53,8 +102,14 @@ function math(move, symbol) {
 
         if (win == 3) {
             if (gameboard[0][y] == "X") {
+
+                winDisplay("O");
+
                 console.log("player O wins")
             } else {
+
+                winDisplay("X");
+
                 console.log('player X wins')
             }
         }
@@ -72,8 +127,14 @@ function math(move, symbol) {
 
         if(win == 3) {
             if (gameboard[x][y] == "X") {
+
+                winDisplay("O");
+                
                 console.log("player O wins")
             } else {
+
+                winDisplay("X");
+
                 console.log('player X wins')
             }
         }
