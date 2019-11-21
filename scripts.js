@@ -16,38 +16,27 @@ gameboard = [
     [7, 8, 9]
 ]
 
-function winDisplay(symbol) {
-    winner.innerHTML = ("Player " + symbol + " wins!!!")
+function winDisplay(mark, axis) {
 
-    winBox.classList.add("show")
+    if (win == 3) {
+        if (gameboard[axis][0] == "X") {
+
+            winner.innerHTML = ("Player O wins!!!")
+
+            winBox.classList.add("show")
+
+            console.log("player O wins");
+        } else {
+
+            winner.innerHTML = ("Player X wins!!!")
+
+            winBox.classList.add("show")
+
+            console.log('player X wins');
+        }
+    }
+
 }
-
-// function winCondition(axis) {
-//     for (var i = 0; i < 3; i++) {
-
-//         if (gameboard[axis][i] == "X" || gameboard[axis][i] == "O"){
-//             win += 1
-
-//         } else{
-//             break
-//         };
-
-//         if (win == 3) {
-//             if (gameboard[axis][0] == "X") {
-
-//                 winDisplay("O");
-
-//                 console.log("player O wins");
-//             } else {
-
-//                 winDisplay("X");
-
-//                 console.log('player X wins');
-//             }
-//         }
-//     }
-// }
-
 
 
 function math(move, symbol) {
@@ -62,82 +51,46 @@ function math(move, symbol) {
     console.log(x);
     gameboard[x][y] = symbol;
 
-    
+
     win = 0
 
     for (var i = 0; i < 3; i++) {
 
-        if (gameboard[x][i] == "X" || gameboard[x][i] == "O"){
+        if (gameboard[x][i] == "X" || gameboard[x][i] == "O") {
             win += 1
 
-        } else{
+        } else {
             break
         };
 
-        if (win == 3) {
-            if (gameboard[x][0] == "X") {
-
-                winDisplay("O");
-
-                console.log("player O wins");
-            } else {
-
-                winDisplay("X");
-
-                console.log('player X wins');
-            }
-        }
+        winDisplay(symbol, x)
     }
 
     win = 0
 
     for (var i = 0; i < 3; i++) {
 
-        if (gameboard[i][y] == "X" || gameboard[i][y] == "O"){
+        if (gameboard[i][y] == "X" || gameboard[i][y] == "O") {
             win += 1
 
-        } else{
+        } else {
             break
         };
 
-        if (win == 3) {
-            if (gameboard[0][y] == "X") {
-
-                winDisplay("O");
-
-                console.log("player O wins")
-            } else {
-
-                winDisplay("X");
-
-                console.log('player X wins')
-            }
-        }
+        winDisplay(symbol, x)
     }
 
     win = 0
 
     for (var i = 0; i < 3; i++) {
 
-        if (gameboard[i][i] == "X" || gameboard[i][i] == "O"){
+        if (gameboard[i][i] == "X" || gameboard[i][i] == "O") {
             win += 1
-        } else{
+        } else {
             break
         };
 
-        if(win == 3) {
-            if (gameboard[x][y] == "X") {
-
-                winDisplay("O");
-                
-                console.log("player O wins")
-            } else {
-
-                winDisplay("X");
-
-                console.log('player X wins')
-            }
-        }
+        winDisplay(symbol, x)
     }
 
 
@@ -174,9 +127,6 @@ for (var i = 0; i < cell.length; i++) {
             this.innerHTML = turn;
             this.style.color = "Black";
         }
-
-        
-
 
     });
 };
