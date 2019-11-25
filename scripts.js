@@ -25,6 +25,10 @@ function winDisplay(mark, axis) {
 
             winBox.classList.add("show")
 
+            span.onclick = function() {
+                modal.style.display = 'none'
+            };
+
             console.log("player O wins");
         } else {
 
