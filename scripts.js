@@ -16,7 +16,7 @@ gameboard = [
     [7, 8, 9]
 ]
 
-function winDisplay(mark, axis) {
+function winDisplay(axis) {
 
     if (win == 3) {
         if (gameboard[axis][0] == "X") {
@@ -43,6 +43,50 @@ function winDisplay(mark, axis) {
 }
 
 
+function winCheck(xValue, yValue, PlayerMark) {
+    win = 0
+
+    for (var i = 0; i < 3; i++) {
+
+        if (gameboard[xValue][i] == PlayerMark) {
+            win += 1
+
+        } else {
+            break
+        };
+
+        winDisplay(xValue)
+    }
+
+    win = 0
+
+    for (var i = 0; i < 3; i++) {
+
+        if (gameboard[i][yValue] == PlayerMark) {
+            win += 1
+
+        } else {
+            break
+        };
+
+        winDisplay(xValue)
+    }
+
+    win = 0
+
+    for (var i = 0; i < 3; i++) {
+
+        if (gameboard[i][i] == PlayerMark) {
+            win += 1
+        } else {
+            break
+        };
+
+        winDisplay(i)
+    }
+}
+
+
 function math(move, symbol) {
 
     x = (Math.ceil(move / 3) - 1);
@@ -55,48 +99,7 @@ function math(move, symbol) {
     console.log(x);
     gameboard[x][y] = symbol;
 
-
-    win = 0
-
-    for (var i = 0; i < 3; i++) {
-
-        if (gameboard[x][i] == "X" || gameboard[x][i] == "O") {
-            win += 1
-
-        } else {
-            break
-        };
-
-        winDisplay(symbol, x)
-    }
-
-    win = 0
-
-    for (var i = 0; i < 3; i++) {
-
-        if (gameboard[i][y] == "X" || gameboard[i][y] == "O") {
-            win += 1
-
-        } else {
-            break
-        };
-
-        winDisplay(symbol, x)
-    }
-
-    win = 0
-
-    for (var i = 0; i < 3; i++) {
-
-        if (gameboard[i][i] == "X" || gameboard[i][i] == "O") {
-            win += 1
-        } else {
-            break
-        };
-
-        winDisplay(symbol, x)
-    }
-
+    winCheck(x, y, symbol)
 
 }
 
