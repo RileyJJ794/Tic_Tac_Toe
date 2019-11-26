@@ -16,10 +16,10 @@ gameboard = [
     [7, 8, 9]
 ]
 
-function winDisplay(axis) {
+function winDisplay(axis, axis2) {
 
     if (win == 3) {
-        if (gameboard[axis][0] == "X") {
+        if (gameboard[axis][axis2] == "X") {
 
             winner.innerHTML = ("Player O wins!!!")
 
@@ -37,6 +37,10 @@ function winDisplay(axis) {
             winBox.classList.add("show")
 
             console.log('player X wins');
+
+            span.onclick = function() {
+                modal.style.display = 'none'
+            };
         }
     }
 
@@ -55,7 +59,7 @@ function winCheck(xValue, yValue, PlayerMark) {
             break
         };
 
-        winDisplay(xValue)
+        winDisplay(xValue, yValue)
     }
 
     win = 0
@@ -69,7 +73,7 @@ function winCheck(xValue, yValue, PlayerMark) {
             break
         };
 
-        winDisplay(xValue)
+        winDisplay(xValue, yValue)
     }
 
     win = 0
@@ -82,7 +86,7 @@ function winCheck(xValue, yValue, PlayerMark) {
             break
         };
 
-        winDisplay(i)
+        winDisplay(xValue, yValue)
     }
 }
 
