@@ -23,7 +23,7 @@ body {
 
 .modal {
     display: none;
-    background: grey;
+    background: crimson;
     text-align: center;
     font-size: 4em;
 }

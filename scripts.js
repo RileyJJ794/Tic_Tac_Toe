@@ -16,6 +16,12 @@ gameboard = [
     [7, 8, 9]
 ]
 
+function reset() {
+    for (var i = 0; i < 9; i++) {
+        
+    }
+};
+
 function winDisplay(axis, axis2) {
 
     if (win == 3) {
@@ -27,6 +33,7 @@ function winDisplay(axis, axis2) {
 
             span.onclick = function() {
                 modal.style.display = 'none'
+                reset()
             };
 
             console.log("player O wins");
@@ -40,6 +47,7 @@ function winDisplay(axis, axis2) {
 
             span.onclick = function() {
                 modal.style.display = 'none'
+                reset()
             };
         }
     }
